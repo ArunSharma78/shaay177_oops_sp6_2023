@@ -1,29 +1,17 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>680</x><y>10</y><w>100</w><h>60</h></coordinates><panel_attributes>AllThatDice
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>820</x><y>120</y><w>100</w><h>60</h></coordinates><panel_attributes>AllThatDice
 --
 --
-run()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>70</y><w>180</w><h>260</h></coordinates><panel_attributes>Player
+run()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>220</y><w>180</w><h>220</h></coordinates><panel_attributes>Player
 --
 --name: String
---chips: int
---gamesPlayed: int
---gamesWon: int
---buncos: int
 --
-getName(): String
-getChips(): int
-getGamesPlayed(): int
-getGamesWon(): int
-getBuncos(): int
-addChips(amount: int)
-subtractChips(amount: int)
-incrementGamesPlayed()
-incrementGamesWon()
-incrementBuncos()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>670</x><y>130</y><w>110</w><h>90</h></coordinates><panel_attributes>Dice
+check_player_exist(str): bool
+add_player(str)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>240</y><w>110</w><h>90</h></coordinates><panel_attributes>Dice
 --
 --sides: int(1-6)
 --strength: int(0-5)
 --
-roll():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>130</y><w>150</w><h>140</h></coordinates><panel_attributes>Game
+roll():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>240</y><w>150</w><h>140</h></coordinates><panel_attributes>Game
 --
 --players: List&lt;Player&gt;
 --currentPlayer: Player
@@ -32,21 +20,21 @@ roll():int</panel_attributes><additional_attributes></additional_attributes></el
 addPlayer(player: Player)
 nxtTurn()
 isGameOver(): boolean
-endGame()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>390</y><w>140</w><h>120</h></coordinates><panel_attributes>OddOrEvenGame
+endGame()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>500</y><w>140</w><h>120</h></coordinates><panel_attributes>OddOrEvenGame
 --
 Game:cls
 --
 playOddOrEvenGame
 (player: Player, 
 guess: String, 
-strength: int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>390</y><w>140</w><h>120</h></coordinates><panel_attributes>MaxiGame
+strength: int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>500</y><w>140</w><h>120</h></coordinates><panel_attributes>MaxiGame
 --
 Game:cls
 --
 playMaxiGame(players: 
     List&lt;Player&gt;)
 rollDice(strength: int): 
-    List&lt;int&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>390</y><w>180</w><h>180</h></coordinates><panel_attributes>BuncoGame
+    List&lt;int&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>500</y><w>180</w><h>180</h></coordinates><panel_attributes>BuncoGame
 --
 Game:cls
 --
@@ -57,14 +45,14 @@ nxtRound()
 endRound()
 calculateWinner
     (round: Round): Player
-displayScores()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>390</y><w>200</w><h>130</h></coordinates><panel_attributes>Round
+displayScores()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>990</x><y>500</y><w>200</w><h>130</h></coordinates><panel_attributes>Round
 --
 --roundNumber: int
 --players: List&lt;Player&gt;
 --scores: Map&lt;Player, int&gt;
 --
 playRound()
-isRoundOver(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>10</y><w>200</w><h>280</h></coordinates><panel_attributes>CommandLineInterface
+isRoundOver(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1000</x><y>120</y><w>200</w><h>280</h></coordinates><panel_attributes>CommandLineInterface
 --
 --
 displayGreeting()
@@ -82,25 +70,39 @@ getUserIntegerInput
     (message: String, 
      minValue: int, 
      maxValue: int): int
-showGameResult(result: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>260</y><w>160</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;10;140;50;10;50;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>260</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>260</y><w>140</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50;120;50;120;130</additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>390</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+showGameResult(result: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>370</y><w>160</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;10;140;50;10;50;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>370</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>370</y><w>140</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50;120;50;120;130</additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>500</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 has a &gt;
 m1= 1
-m2=6</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>170</y><w>220</w><h>50</h></coordinates><panel_attributes>lt=-
+m2=6</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>280</y><w>220</w><h>50</h></coordinates><panel_attributes>lt=-
 play a &gt;
 m1=0..n
-m2=1..5</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>30</x><y>320</y><w>840</w><h>310</h></coordinates><panel_attributes>lt=-&gt;
+m2=1..5</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>430</y><w>840</w><h>310</h></coordinates><panel_attributes>lt=-&gt;
 play a &gt;
 m1= 2..4
-m2=6</panel_attributes><additional_attributes>10;10;10;290;800;290;800;130;820;130</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>10</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
-m1=1</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>140</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=6</panel_attributes><additional_attributes>10;10;10;290;800;290;800;130;820;130</additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>120</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>250</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 &lt; has a
-m2= 1..3</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>290</y><w>150</w><h>120</h></coordinates><panel_attributes>lt=-
+m2= 1..3</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>400</y><w>150</w><h>120</h></coordinates><panel_attributes>lt=-
 m1=0..n
 m2=3..5
-play a &gt; </panel_attributes><additional_attributes>110;100;110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>320</y><w>300</w><h>240</h></coordinates><panel_attributes>lt=-
+play a &gt; </panel_attributes><additional_attributes>110;100;110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>430</y><w>300</w><h>240</h></coordinates><panel_attributes>lt=-
 m1=0..n
 m2=1
-play a &gt;</panel_attributes><additional_attributes>260;190;260;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>320</y><w>500</w><h>270</h></coordinates><panel_attributes>lt=-
+play a &gt;</panel_attributes><additional_attributes>260;190;260;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>430</y><w>500</w><h>270</h></coordinates><panel_attributes>lt=-
 m1=0..n
 m2=2-4
-play a &gt;</panel_attributes><additional_attributes>480;240;10;240;10;10</additional_attributes></element></diagram>
+play a &gt;</panel_attributes><additional_attributes>480;240;10;240;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>50</y><w>150</w><h>150</h></coordinates><panel_attributes>PlayerScore
+--
+--chips: int
+--gamesPlayed: int
+--gamesWon: int
+--buncos: int
+--
+update_chips(int, str)
+update_games_played(int)
+update_games_won(int)
+update_buncos(int)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>190</y><w>150</w><h>130</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1
+m2=1
+&lt; has a</panel_attributes><additional_attributes>130;100;20;100;20;10</additional_attributes></element></diagram>
